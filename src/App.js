@@ -5,12 +5,17 @@ import Maze from "./Component/Maze";
 
 function App() {
   const [difficulty, setDifficulty] = useState("Easy");
+  const [gameRunning, setRunning] = useState(false);
   const handleChange = (e) => {
     setDifficulty(e.target.value);
   };
   const handleClick = () => {
     console.log(difficulty);
+    if (!gameRunning) {
+      setRunning(true);
+    }
   };
+
   return (
     <div className="App">
       <h1 className="heading">Play Game</h1>
@@ -26,7 +31,8 @@ function App() {
         <option value="Hard">Hard</option>
         <option value="Hell">Hell</option>
       </select>
-      <button>Play Game</button>
+      <button onClick={handleClick}>Play Game</button>
+      {gameRunning ? <Maze /> : <p>False</p>}
     </div>
   );
 }
