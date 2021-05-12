@@ -32,7 +32,7 @@ function App() {
         <option value="Hell">Hell</option>
       </select>
       <button onClick={handleClick}>Play Game</button>
-      {gameRunning ? <Maze /> : <p>False</p>}
+      {gameRunning ? <Maze difficulty={difficulty} /> : <p>False</p>}
     </div>
   );
 }
